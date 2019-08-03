@@ -27,12 +27,24 @@ function addEmployeeInfo() {
 
     allEmployeeInformation.push(individualEmployeeInfo);
     console.log(allEmployeeInformation);
-
-    
-    
-
+    render(); 
 }
 
-function render() {
+function render() { 
+    console.log('render');
+    
+    const tableElement = $('.js-table-data');
+    tableElement.empty(); 
 
+    for (let i = 0; i < allEmployeeInformation.length; i++) {
+        const employee = allEmployeeInformation[i]; 
+        
+        tableElement.append(`<tr>
+            <td>${allEmployeeInformation[i].firstName}</td>
+            <td>${employee.lastName}</td> 
+            <td>${employee.idNumber}</td>
+            <td>${employee.title}</td>
+            <td>${employee.annualSalary}</td> 
+            </tr>`); 
+    }
 }
