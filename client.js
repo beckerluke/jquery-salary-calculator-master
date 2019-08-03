@@ -5,7 +5,8 @@ $(document).ready(init);
 
 function init() {
     $('.js-btn-submit').on('click', addEmployeeInfo);
-}
+    $('.js-btn-delete').on('click', deleteEmployeeInfo); 
+}// end of init function 
 
 
 function addEmployeeInfo() {
@@ -30,33 +31,35 @@ function addEmployeeInfo() {
     render(); 
     calculateMonthlyCosts(); 
     
-    $('.js-btn-delete').on('click', deleteEmployeeInfo); 
-}
+}// end of addEmployeeInfo function 
 
 function calculateMonthlyCosts() { 
     let totalMonthlyCosts = 0; 
     const tableFooter = $('tfoot'); 
+
     tableFooter.empty(); 
 
     
     for (let i = 0; i < allEmployeeInformation.length; i++) {
         const employee = allEmployeeInformation[i]; 
-        totalMonthlyCosts += employee.annualSalary; 
+        const convertToMonthlyCosts = employee.annualSalary/12;
+        
+        totalMonthlyCosts += convertToMonthlyCosts; 
     }
         $('tfoot').append(`<tr>
         <td>
-        Total Monthly: ${totalMonthlyCosts}
+        Total Monthly: $${totalMonthlyCosts}
         </td>
         </tr>`)
-}
+}// end of calculateMonthlyCosts function 
 
 function deleteEmployeeInfo() { 
     const tableElement = $('.js-table-data'); 
 
     for (let i = 0; i < allEmployeeInformation.length; i++) {
-        $(this).parent().remove(`<tr></tr>`) 
+        $(this).parent().remove(`<tr></tr>`); 
     } 
-}
+}// end of deleteEmployeeInfo function 
 
 function render() { 
     console.log('render');
@@ -72,10 +75,10 @@ function render() {
             <td>${employee.lastName}</td> 
             <td>${employee.idNumber}</td>
             <td>${employee.title}</td>
-            <td>${employee.annualSalary}</td> 
+            <td>$${employee.annualSalary}</td> 
             <td>
                 <button class="js-btn-delete">Delete</button> 
             </td> 
             </tr>`); 
     }
-}
+}// end of render function 
