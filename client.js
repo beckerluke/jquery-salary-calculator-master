@@ -56,13 +56,20 @@ function calculateMonthlyCosts() {
     }
 
     if (totalMonthlyCosts > 20000) {
-        $
-    }
+        $('tfoot').addClass('turnred'); 
+
         tableFooter.append(`<tr>
         <td>
         Total Monthly: $${totalMonthlyCosts}
         </td>
         </tr>`)
+    } else { 
+        tableFooter.append(`<tr>
+        <td>
+        Total Monthly: $${totalMonthlyCosts}
+        </td>
+        </tr>`)
+    }
 }// end of calculateMonthlyCosts function 
 
 function deleteEmployeeInfo() { 
