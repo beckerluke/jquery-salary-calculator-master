@@ -4,8 +4,7 @@ const allEmployeeInformation = [];
 $(document).ready(init); 
 
 function init() {
-    render();  
-    $('.js-btn-submit').on('click', addEmployeeInfo); 
+    $('.js-btn-submit').on('click', addEmployeeInfo);
 }
 
 
@@ -27,7 +26,36 @@ function addEmployeeInfo() {
 
     allEmployeeInformation.push(individualEmployeeInfo);
     console.log(allEmployeeInformation);
+    
     render(); 
+    calculateMonthlyCosts(); 
+    
+    $('.js-btn-delete').on('click', deleteEmployeeInfo); 
+}
+
+function calculateMonthlyCosts() { 
+    let totalMonthlyCosts = 0; 
+    const tableFooter = $('tfoot'); 
+    tableFooter.empty(); 
+
+    
+    for (let i = 0; i < allEmployeeInformation.length; i++) {
+        const employee = allEmployeeInformation[i]; 
+        totalMonthlyCosts += employee.annualSalary; 
+    }
+        $('tfoot').append(`<tr>
+        <td>
+        Total Monthly: ${totalMonthlyCosts}
+        </td>
+        </tr>`)
+}
+
+function deleteEmployeeInfo() { 
+    const tableElement = $('.js-table-data'); 
+
+    for (let i = 0; i < allEmployeeInformation.length; i++) {
+        $(this).parent().remove(`<tr></tr>`) 
+    } 
 }
 
 function render() { 
@@ -45,6 +73,9 @@ function render() {
             <td>${employee.idNumber}</td>
             <td>${employee.title}</td>
             <td>${employee.annualSalary}</td> 
+            <td>
+                <button class="js-btn-delete">Delete</button> 
+            </td> 
             </tr>`); 
     }
 }

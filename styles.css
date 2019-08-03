@@ -20,3 +20,20 @@ tbody {
 thead {
     background-color: gray; 
 }
+
+tbody > tr > td {
+    border: 1px solid black; 
+}
+
+tbody > tr:nth-child(even) {
+    background-color: lightgray;  
+}
+
+tfoot { 
+    text-align: right; 
+    box-sizing: border-box; 
+}
+
+input { 
+    border: 1px solid black; 
+}
