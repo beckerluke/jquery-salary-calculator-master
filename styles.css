@@ -1,3 +1,9 @@
+h1 {
+    background-color: gray; 
+    text-align: center; 
+    color: white; 
+}
+
 .container {
     box-sizing: border-box;
 }
@@ -5,4 +11,12 @@
 table {
    border: 1px solid grey; 
    width: 95%;
+}
+
+tbody {
+    text-align: center;  
+}
+
+thead {
+    background-color: gray; 
 }

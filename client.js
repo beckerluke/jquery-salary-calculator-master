@@ -40,7 +40,7 @@ function render() {
         const employee = allEmployeeInformation[i]; 
         
         tableElement.append(`<tr>
-            <td>${allEmployeeInformation[i].firstName}</td>
+            <td>${employee.firstName}</td>
             <td>${employee.lastName}</td> 
             <td>${employee.idNumber}</td>
             <td>${employee.title}</td>
