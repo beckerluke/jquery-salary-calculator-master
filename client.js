@@ -5,12 +5,19 @@ $(document).ready(init);
 
 function init() {
     $('.js-btn-submit').on('click', addEmployeeInfo);
-    $('.js-btn-delete').on('click', deleteEmployeeInfo); 
+    // $('.js-btn-delete').on('click', deleteEmployeeInfo); 
 }// end of init function 
 
 
 function addEmployeeInfo() {
-
+    if ( $('.js-input-firstName').val() == "" || 
+    $('.js-input-lastName').val() == "" ||
+    $('.js-input-idNumber').val() == "" ||
+    $('.js-input-jobTitle').val() == "" ||
+    $('.js-input-annualSalary').val() == "") { 
+        alert('Please Enter All Fields'); 
+    } else {
+    
     const individualEmployeeInfo = {
         firstName: $('.js-input-firstName').val(), 
         lastName: $('.js-input-lastName').val(),
@@ -30,7 +37,8 @@ function addEmployeeInfo() {
     
     render(); 
     calculateMonthlyCosts(); 
-    
+    $('.js-btn-delete').on('click', deleteEmployeeInfo);
+    }    
 }// end of addEmployeeInfo function 
 
 function calculateMonthlyCosts() { 
@@ -46,7 +54,11 @@ function calculateMonthlyCosts() {
         
         totalMonthlyCosts += convertToMonthlyCosts; 
     }
-        $('tfoot').append(`<tr>
+
+    if (totalMonthlyCosts > 20000) {
+        $
+    }
+        tableFooter.append(`<tr>
         <td>
         Total Monthly: $${totalMonthlyCosts}
         </td>
@@ -57,7 +69,7 @@ function deleteEmployeeInfo() {
     const tableElement = $('.js-table-data'); 
 
     for (let i = 0; i < allEmployeeInformation.length; i++) {
-        $(this).parent().remove(`<tr></tr>`); 
+        $(this).parent().remove(); 
     } 
 }// end of deleteEmployeeInfo function 
 
