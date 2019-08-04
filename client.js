@@ -72,11 +72,9 @@ function calculateMonthlyCosts() {
     }
 }// end of calculateMonthlyCosts function 
 
-function deleteEmployeeInfo() { 
-    const tableElement = $('.js-table-data'); 
-
+function deleteEmployeeInfo() {   
     for (let i = 0; i < allEmployeeInformation.length; i++) {
-        $(this).parent().remove(); 
+        $(this).parent().parent().remove(); 
     } 
 }// end of deleteEmployeeInfo function 
 
