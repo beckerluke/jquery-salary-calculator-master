@@ -5,7 +5,6 @@ $(document).ready(init);
 
 function init() {
     $('.js-btn-submit').on('click', addEmployeeInfo);
-    // $('.js-btn-delete').on('click', deleteEmployeeInfo); 
 }// end of init function 
 
 
@@ -47,7 +46,6 @@ function calculateMonthlyCosts() {
 
     tableFooter.empty(); 
 
-    
     for (let i = 0; i < allEmployeeInformation.length; i++) {
         const employee = allEmployeeInformation[i]; 
         const convertToMonthlyCosts = employee.annualSalary/12;
@@ -73,9 +71,7 @@ function calculateMonthlyCosts() {
 }// end of calculateMonthlyCosts function 
 
 function deleteEmployeeInfo() {   
-    for (let i = 0; i < allEmployeeInformation.length; i++) {
-        $(this).parent().parent().remove(); 
-    } 
+    $(this).parent().parent().remove(); 
 }// end of deleteEmployeeInfo function 
 
 function render() { 
@@ -99,3 +95,5 @@ function render() {
             </tr>`); 
     }
 }// end of render function 
+
+
